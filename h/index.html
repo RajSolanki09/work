@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1em;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table th,
+        table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        table button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9em;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        table button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#my-books">My Books</a></li>
+            <li><a href="#bookmark">Bookmark</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1>Add New Book</h1>
+        <form id="book-form">
+            <label>Book Name: <input type="text" id="book-name" required></label><br>
+            <label>Author Name: <input type="text" id="author-name" required></label><br>
+            <label>Book Description: <textarea id="book-description" required></textarea></label><br>
+            <label>Added Date: <input type="date" id="added-date" required></label><br>
+            <label>Book Category:
+                <select id="book-category" required>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Non-Fiction">Non-Fiction</option>
+                    <option value="Science">Science</option>
+                    <option value="History">History</option>
+                </select>
+            </label><br>
+            <label>Book Price: <input type="number" id="book-price" required></label><br>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <section id="dashboard">
+        <h1>Dashboard</h1>
+        <div>
+            <label>Filter by Category:
+                <select id="filter-category">
+                    <option value="All">All</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Non-Fiction">Non-Fiction</option>
+                    <option value="Science">Science</option>
+                    <option value="History">History</option>
+                </select>
+            </label>
+        </div>
+        <table id="book-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Description</th>
+                    <th>Added Date</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Buy</th>
+                    <th>Bookmark</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic Rows -->
+            </tbody>
+        </table>
+    </section>
+
+    <section id="my-books">
+        <h1>My Books</h1>
+        <table id="buy-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Description</th>
+                    <th>Added Date</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic Rows -->
+            </tbody>
+        </table>
+    </section>
+
+    <section id="bookmark">
+        <h1>Bookmark</h1>
+        <table id="bookmark-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Description</th>
+                    <th>Added Date</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic Rows -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
